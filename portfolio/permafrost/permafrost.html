@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 20px;
+}
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Style the top navigation bar */
+.navbar {
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: rgb(255, 253, 253);
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+
+</head>
+<body>
+
+
+  <div class="navbar">
+    <div>
+    <h1 style=color:black;padding-top:20px;padding-left:50px;>Garrett Lantz </h1>
+    </div>
+    <a href="G:\VSC Projects\O1_Lesson\Website\contact.html" class="right">Contact</a>
+    <a href="G:\VSC Projects\O1_Lesson\Website\about.html"class="right">About</a>
+    <a href="G:\VSC Projects\O1_Lesson\Website\resume.html"class="right">Resume</a>
+    <a href="G:\VSC Projects\O1_Lesson\Website\portfolio.html"class="right">Portfolio</a>
+      </div>
+
+
+<div style="text-align: center;">
+
+<h1 style="font-size:60px;">Permafrost is currently in Alpha and is still being worked on using Unity 5. Permafrost is an endless wave and tower defense virtual reality game where the player must survive the onslaught from enemies using a snow wall that will break down if it gets hit too much.   For this game, I was the level designer. </h1>
+
+<iframe width="1280" height=720" src="https://www.youtube.com/embed/au72LqPyCLE">
+</iframe>
+
+<h3 style="font-size:60px;">Alpha Build </h3>
+
+<h2 style="font-size:60px;">Credits </h2>
+<h2> Austin Holt - Team Lead / Technical Designer </h2>
+
+<h2> Eric Santos - Lead Programmer </h2>
+
+<h2> David Matias - Designer / Programmer / Sound </h2>
+
+<h2> Peter Arzola - Programmer / Sound </h2>
+
+<h2> Garrett Lantz - Game Designer </h2>
+
+<h2> Matthew Allers - Game Designer </h2>
+
+<h2> Joseph Lax - Lead Artist </h2>
+
+<h2> Fisher Heins - Artist </h2>
+
+<h2> Luke Doxsee - Artist </h2>
+
+<h2> Quinn Weber - UI Artist </h2>
+
+<div class="footer">
+  <h2>Made with HTML by Garrett Lantz</h2>
+</div>
+</body>
+</html>
