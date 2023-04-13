@@ -105,9 +105,9 @@ body {
     height: 90%;
     width: 90%;
   }
-  img{
+  .img{
     height: 80%;
-    width: 80%;
+    max-width: 80%;
 
   }
 
@@ -124,9 +124,9 @@ body {
     height: 90%;
     width: 90%;
   }
-  img{
+  .img{
     height: 80%;
-    width: 80%;
+    max-width: 80%;
 
   }
 
