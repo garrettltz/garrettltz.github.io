@@ -101,6 +101,28 @@ body {
 
 }
 
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-container img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .navbar a {
+    float: none;
+    height: 90%;
+    width: 90%;
+  }
+
+  .image-container {
+    flex-direction: column;
+  }
+}
+
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row {   
@@ -112,11 +134,7 @@ body {
     height: 90%;
     width: 90%;
   }
-  img{
-    height: auto;
-    max-width: 60%;
-
-  }
+  
 
 }
 
@@ -131,10 +149,6 @@ body {
     height: 90%;
     width: 90%;
   }
-  img{
-    height: auto;
-    max-width: 60%;
-
-  }
+  
 
 }
