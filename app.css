@@ -84,7 +84,13 @@ body {
 }
 
 /* Fake image, just for this example */
+.img {
+  background-color: #aaa;
+  width: 100%;
+  height: auto;
+  padding: 20px;
 
+}
 
 /* Footer */
 .footer {
