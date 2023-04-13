@@ -1,5 +1,6 @@
-
-
+* {
+  box-sizing: border-box;
+}
 
 .column {
   float: left;
@@ -78,10 +79,12 @@ body {
 }
 
 /* Fake image, just for this example */
-.fakeimg {
+.img {
   background-color: #aaa;
   width: 100%;
+  height: auto;
   padding: 20px;
+  
 }
 
 /* Footer */
@@ -98,6 +101,16 @@ body {
     height: 90%;
     width: 90%;
   }
+  .column{
+    height: 90%;
+    width: 90%;
+  }
+  .img{
+    height: 80%;
+    width: 80%;
+
+  }
+
 }
 
 /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
@@ -107,4 +120,14 @@ body {
     height: 90%;
     width: 90%;
   }
+  .column{
+    height: 90%;
+    width: 90%;
+  }
+  .img{
+    height: 80%;
+    width: 80%;
+
+  }
+
 }
