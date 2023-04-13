@@ -67,7 +67,7 @@ body {
   -ms-flex: 30%; /* IE10 */
   flex: 30%;
   background-color: #f1f1f1;
-  padding: 20px;
+  padding: 5px;
 }
 
 /* Main column */
@@ -98,6 +98,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 20px
 }
 
 .image-container img {
