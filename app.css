@@ -1,119 +1,532 @@
+/* ==========================================================
+   Garrett Lantz Portfolio
+   Main Stylesheet
+========================================================== */
+
+/* ==========================================================
+   Variables
+========================================================== */
+
+:root {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-light: #334155;
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+
+  --text: #f8fafc;
+  --text-muted: #cbd5e1;
+
+  --border: #475569;
+
+  --max-width: 1200px;
+}
+
+
+/* ==========================================================
+   Global Styles
+========================================================== */
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 20px;
+html {
+  scroll-behavior: smooth;
 }
-/* Style the body */
+
 body {
+  background: var(--background);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* Header/logo Title */
-.header {
-  padding: 80px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-}
-
-/* Increase the font size of the heading */
-.header h1 {
-  font-size: 40px;
-}
-
-/* Style the top navigation bar */
-.navbar {
-  overflow: hidden;
-  background-color: rgb(255, 255, 255);
-}
-
-/* Style the navigation bar links */
-.navbar a {
-  float: left;
+img {
   display: block;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 14px 20px;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
   text-decoration: none;
 }
 
-/* Right-aligned link */
-.navbar a.right {
-  float: right;
+
+/* ==========================================================
+   Navigation
+========================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
 }
 
-/* Change color on hover */
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
+.navbar {
+  width: min(100% - 40px, var(--max-width));
+  margin: 0 auto;
 
-/* Column container */
-.row {
-  display: -ms-flexbox; /* IE10 */
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 0;
 }
 
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-  -ms-flex: 30%; /* IE10 */
-  flex: 30%;
-  background-color: #f1f1f1;
-  padding: 5px;
-}
-/* savepoint */
-/* Main column */
-.main {
-  -ms-flex: 70%; /* IE10 */
-  flex: 70%;
-  background-color: white;
-  padding: 20px;
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-/* Fake image, just for this example */
-.img {
-  background-color: #aaa;
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 6px 0;
+  transition: color .25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
   width: 100%;
-  height: auto;
-  padding: 20px;
+  height: 2px;
+
+  background: var(--primary);
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform .25s ease;
 }
 
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: rgb(255, 253, 253);
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
 }
 
-.image-container {
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+
+/* ==========================================================
+   Hero
+========================================================== */
+
+.hero {
+  display: flex;
+  align-items: center;
+
+  min-height: 70vh;
+
+  padding: 80px 20px;
+}
+
+.hero-content {
+  width: min(100%, var(--max-width));
+  margin: auto;
+}
+
+.eyebrow {
+  color: var(--primary);
+
+  font-size: .9rem;
+  font-weight: bold;
+
+  text-transform: uppercase;
+  letter-spacing: .15em;
+
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+
+  max-width: 850px;
+
+  margin-bottom: 24px;
+}
+
+.hero-text {
+  max-width: 750px;
+
+  color: var(--text-muted);
+
+  font-size: 1.15rem;
+}
+
+.hero-buttons {
   display: flex;
   flex-wrap: wrap;
+  gap: 16px;
+
+  margin-top: 36px;
+}
+
+
+/* ==========================================================
+   Buttons
+========================================================== */
+
+.button {
+  display: inline-flex;
   justify-content: center;
+  align-items: center;
+
+  padding: 12px 24px;
+
+  min-height: 48px;
+
+  border-radius: 8px;
+  border: 2px solid transparent;
+
+  font-weight: bold;
+
+  transition:
+    background .2s,
+    border-color .2s,
+    transform .2s;
 }
 
-.image-container img {
-  max-width: 100%;
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.primary-button {
+  background: var(--primary);
+}
+
+.primary-button:hover {
+  background: var(--primary-hover);
+}
+
+.secondary-button {
+  border-color: var(--primary);
+}
+
+.secondary-button:hover {
+  background: var(--primary);
+}
+
+
+/* ==========================================================
+   Sections
+========================================================== */
+
+.section {
+  width: min(100% - 40px, var(--max-width));
+
+  margin: 0 auto;
+  padding: 80px 0;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.section-heading p:last-child {
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================
+   Project Cards
+========================================================== */
+
+.project-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 28px;
+}
+
+.project-card {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  transition:
+    transform .2s,
+    border-color .2s,
+    box-shadow .2s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--primary);
+
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+}
+
+.project-card img {
+  width: 100%;
+  height: 230px;
+
+  object-fit: cover;
+}
+
+.project-card-content {
+  padding: 24px;
+}
+
+.project-card-content h3 {
+  margin-bottom: 10px;
+}
+
+.project-card-content p {
+  color: var(--text-muted);
+
+  margin-bottom: 18px;
+}
+
+.project-card-content a {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.project-card-content a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==========================================================
+   Footer
+========================================================== */
+
+.footer {
+  margin-top: 50px;
+
+  padding: 28px;
+
+  text-align: center;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text-muted);
+}
+
+/* ==========================================================
+   Individual Project Pages
+========================================================== */
+
+.project-hero {
+  padding: 90px 20px 50px;
+}
+
+.project-page-container {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+.project-hero h1 {
+  margin-bottom: 20px;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  line-height: 1.1;
+}
+
+.project-intro {
+  max-width: 850px;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+}
+
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.project-meta div {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.meta-label {
+  margin-bottom: 4px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-details {
+  padding-top: 40px;
+}
+
+.project-section {
+  margin-bottom: 64px;
+}
+
+.project-section h2 {
+  margin-bottom: 18px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.project-section p {
+  max-width: 850px;
+  color: var(--text-muted);
+}
+
+.project-list {
+  padding-left: 22px;
+  color: var(--text-muted);
+}
+
+.project-list li {
+  margin-bottom: 10px;
+}
+
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.project-gallery img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.credits-grid div {
   padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
-@media screen and (max-width: 480px) {
-  .navbar a {
-    float: none;
-    height: 90%;
-    width: 90%;
+.credits-grid h3 {
+  margin-bottom: 6px;
+}
+
+.credits-grid p {
+  color: var(--text-muted);
+}
+
+/* ==========================================================
+   Responsive
+========================================================== */
+
+@media (max-width: 900px) {
+  .project-meta {
+    grid-template-columns: 1fr;
+  }
+  
+  .credits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .image-container {
+}
+
+@media (max-width: 700px) {
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .credits-grid {
+    grid-template-columns: 1fr;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .navbar,
+  .section {
+    width: min(100% - 28px, var(--max-width));
+  }
+
+  .hero-buttons {
     flex-direction: column;
   }
-}
 
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+  .button {
+    width: 100%;
+  }
+
+  .project-card img {
+    height: 200px;
+  }
+
+}
