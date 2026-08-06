@@ -1,36 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Resume</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Resume | Garrett Lantz</title>
 
-</head>
-<link rel="stylesheet" href="app.css" type="text/css">
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="app.css" />
+  </head>
 
-  <div class="navbar">
-    <div>
-    <h1 style=color:black;padding-top:20px;padding-left:50px;>Garrett Lantz </h1>
-    </div>
-    <a href="./contact.html" class="right">Contact</a>
-    <a href="./about.html"class="right">About</a>
-    <a href="./resume.html"class="right">Resume</a>
-    <a href="./index.html"class="right">Portfolio</a>
-</div>
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="index.html">Garrett Lantz</a>
 
-<div style="text-align: center;">
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#projects">Projects</a>
+          <a class="active" href="resume.html">Resume</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-  <h1></h1>
-  <div class="image-container">
-  <img src="/img/Resume.png" class="center" >
-  </div>
+    <main>
+      <section class="resume-hero">
+        <div class="resume-container">
+          <p class="eyebrow">Resume</p>
 
-  <div class="footer">
-    <h2>Made with HTML by Garrett Lantz</h2>
-  </div>
+          <h1>Experience, education, projects, and technical skills.</h1>
 
-</body>
+          <p class="resume-intro">
+            My background includes cybersecurity education, computer
+            information systems, software development, technical
+            troubleshooting, customer support, and collaborative project work.
+          </p>
+
+          <div class="hero-buttons">
+            <a
+              class="button primary-button"
+              href="Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Resume
+            </a>
+
+            <a
+              class="button secondary-button"
+              href="Resume.pdf"
+              download
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section resume-section">
+        <div class="resume-container">
+          <div class="resume-viewer">
+            <iframe
+              src="Resume.pdf"
+              title="Garrett Lantz resume"
+            ></iframe>
+          </div>
+
+          <p class="resume-fallback">
+            Your browser may not display the embedded PDF. Use the
+            <a href="Resume.pdf" target="_blank" rel="noopener noreferrer">
+              Open Resume
+            </a>
+            button above to view it in a new tab.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
 </html>

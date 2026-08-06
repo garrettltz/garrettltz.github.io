@@ -1,108 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Contact</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-<link rel="stylesheet" href="app.css" type="text/css">
-<style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Contact | Garrett Lantz</title>
 
-/* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    <link rel="stylesheet" href="app.css" />
+  </head>
 
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="index.html">Garrett Lantz</a>
 
-/* Add a background color and some padding around the form */
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-</style>
-
-</head>
-<body>
-
-
-  <div class="navbar">
-    <div>
-    <h1 style=color:black;padding-top:20px;padding-left:50px;>Garrett Lantz </h1>
-    </div>
-    <a href="./contact.html" class="right">Contact</a>
-    <a href="./about.html"class="right">About</a>
-    <a href="./resume.html"class="right">Resume</a>
-    <a href="./index.html"class="right">Portfolio</a>
-</div>
-
-<div style="text-align: center;">
-  <h1 style="font-size:60px;"> Contact Me </h1>
-</div>
-
-<link href="contact-form.css" rel="stylesheet">
-
-<div class="fcf-body">
-
-    <div id="fcf-form">
-    <h3 class="fcf-h3">Contact us</h3>
-
-    <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
-        
-        <div class="fcf-form-group">
-            <label for="Name" class="fcf-label">Your name</label>
-            <div class="fcf-input-group">
-                <input type="text" id="Name" name="Name" class="fcf-form-control" required>
-            </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="resume.html">Resume</a>
+          <a href="about.html">About</a>
+          <a class="active" href="contact.html">Contact</a>
         </div>
+      </nav>
+    </header>
 
-        <div class="fcf-form-group">
-            <label for="Email" class="fcf-label">Your email address</label>
-            <div class="fcf-input-group">
-                <input type="email" id="Email" name="Email" class="fcf-form-control" required>
-            </div>
+    <main>
+      <section class="contact-hero">
+        <div class="contact-container">
+          <p class="eyebrow">Contact</p>
+
+          <h1>Let’s connect.</h1>
+
+          <p class="contact-intro">
+            I am interested in entry-level cybersecurity, IT support, technical
+            support, and technology-focused opportunities. The best way to
+            reach me is by email or LinkedIn.
+          </p>
         </div>
+      </section>
 
-        <div class="fcf-form-group">
-            <label for="Message" class="fcf-label">Your message</label>
-            <div class="fcf-input-group">
-                <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
-            </div>
+      <section class="section contact-section">
+        <div class="contact-container">
+          <div class="contact-grid">
+            <article class="contact-card">
+              <p class="contact-label">Email</p>
+              <h2>garrettltz@gmail.com</h2>
+              <p>
+                Send me a message about job opportunities, projects, or
+                professional connections.
+              </p>
+
+              <a
+                class="button primary-button"
+                href="mailto:garrettltz@gmail.com"
+              >
+                Send Email
+              </a>
+            </article>
+
+            <article class="contact-card">
+              <p class="contact-label">LinkedIn</p>
+              <h2>Garrett Lantz</h2>
+              <p>
+                Connect with me and view my professional background,
+                certifications, and experience.
+              </p>
+
+              <a
+                class="button secondary-button"
+                href="https://linkedin.com/in/garrett-lantz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View LinkedIn
+              </a>
+            </article>
+
+            <article class="contact-card">
+              <p class="contact-label">GitHub</p>
+              <h2>garrettltz</h2>
+              <p>
+                View my portfolio website and future cybersecurity projects,
+                labs, documentation, and code.
+              </p>
+
+              <a
+                class="button secondary-button"
+                href="https://github.com/garrettltz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View GitHub
+              </a>
+            </article>
+
+            <article class="contact-card">
+              <p class="contact-label">Location</p>
+              <h2>Glen Ellyn, Illinois</h2>
+              <p>
+                Open to opportunities in the Chicago area as well as remote
+                technology roles.
+              </p>
+
+              <a class="button secondary-button" href="resume.html">
+                View Resume
+              </a>
+            </article>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <div class="fcf-form-group">
-            <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
-        </div>
-
-        <div class="fcf-credit" id="fcf-credit">
-        Simple HTML email form provided by <a href="https://www.garrettltz.com" target="_blank">Form</a>
-        </div>
-
-<div class="footer">
-  <h2>Made with HTML by Garrett Lantz</h2>
-</div>
-
-</body>
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
 </html>
