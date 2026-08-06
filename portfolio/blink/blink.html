@@ -1,46 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Blink</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Blink | Garrett Lantz</title>
 
-</head>
-<link rel="stylesheet" href="/app.css" type="text/css">
-<body>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
 
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="/index.html">Garrett Lantz</a>
 
-  <div class="navbar">
-    <div>
-    <h1 style=color:black;padding-top:20px;padding-left:50px;>Garrett Lantz </h1>
-    </div>
-    <a href="/contact.html" class="right">Contact</a>
-    <a href="/about.html"class="right">About</a>
-    <a href="/resume.html"class="right">Resume</a>
-    <a href="/index.html"class="right">Portfolio</a>
-      </div>
+        <div class="nav-links">
+          <a href="/index.html">Home</a>
+          <a class="active" href="/index.html#projects">Projects</a>
+          <a href="/resume.html">Resume</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
 
+    <main>
+      <section class="project-hero">
+        <div class="project-page-container">
+          <p class="eyebrow">Solo Game Development Project</p>
 
-<div style="text-align: center;">
+          <h1>Blink</h1>
 
-<h3 style="font-size:20px;">Blink was a game I created that was based on the Doctor Who weeping angels where the monster of the game can only move if the player isn’t looking at it, The player needs to figure out how to leave the maze and escape before the monster kills them </h3>
+          <p class="project-intro">
+            Blink is a horror game inspired by the Weeping Angels from
+            <em>Doctor Who</em>. The player must navigate a maze and escape while
+            avoiding a monster that only moves when it is outside the player's
+            field of view.
+          </p>
 
-<h2 style="font-size:60px;">Enemy Tracking Player </h2>
-<div class="image-container">
-<img src="/img/BlinkScreenshots/Raycast+find+player.png" class="center";>
-</div>
-<h6 style="font-size:20px;">Using raycasts the enemy can track the player no matter where they go once the monster initially sees them </h6>
+          <div class="project-meta">
+            <div>
+              <span class="meta-label">Role</span>
+              <span>Solo Developer</span>
+            </div>
 
-<h2 style="font-size:60px;">Player Tracking Enemy </h2>
-<div class="image-container">
-<img src="/img/BlinkScreenshots/raycast+can+see+monster.png" class="center";>
-</div>
-<h6 style="font-size:20px;">Also using raycasts we can stop the enemy from moving when the player sees them, however we need to be able to move around with out having the player die. So we add four raycasts so that if the player see a part of the enemy then the enemy can’t move </h6>
+            <div>
+              <span class="meta-label">Engine</span>
+              <span>Unity</span>
+            </div>
 
+            <div>
+              <span class="meta-label">Language</span>
+              <span>C#</span>
+            </div>
+          </div>
 
-<div class="footer">
-  <h2>Made with HTML by Garrett Lantz</h2>
-</div>
-</body>
+          <div class="hero-buttons">
+            <a class="button secondary-button" href="/index.html#projects">
+              Back to Projects
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section project-details">
+        <div class="project-page-container">
+
+          <div class="project-section">
+            <h2>Project Overview</h2>
+
+            <p>
+              Blink explores line-of-sight mechanics through enemy AI.
+              The player must constantly keep the monster within view while
+              searching for an escape route through the maze. Looking away,
+              even briefly, allows the creature to rapidly close the distance.
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h2>My Contribution</h2>
+
+            <p>
+              I designed and developed the gameplay systems, enemy AI,
+              raycasting logic, and player interactions. The project focused
+              on creating suspense through programming rather than scripted
+              events, resulting in an enemy that reacts dynamically to the
+              player's line of sight.
+            </p>
+          </div>
+
+          <div class="project-section">
+            <h2>Technologies</h2>
+
+            <div class="project-meta">
+              <div>
+                <span class="meta-label">Engine</span>
+                <span>Unity</span>
+              </div>
+
+              <div>
+                <span class="meta-label">Language</span>
+                <span>C#</span>
+              </div>
+
+              <div>
+                <span class="meta-label">Focus</span>
+                <span>AI Programming & Raycasting</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-section">
+            <h2>Enemy AI</h2>
+
+            <p>
+              The enemy uses raycasting to detect the player. Once the monster
+              locates the player, it continually tracks their position and
+              attempts to intercept them while navigating the maze.
+            </p>
+
+            <div class="project-gallery">
+              <img
+                src="/img/BlinkScreenshots/Raycast+find+player.png"
+                alt="Enemy using raycasts to detect the player"
+              />
+            </div>
+          </div>
+
+          <div class="project-section">
+            <h2>Line of Sight System</h2>
+
+            <p>
+              Multiple raycasts determine whether the player can see any part
+              of the monster. If the creature is visible, it immediately stops
+              moving. This recreates the signature gameplay mechanic that
+              inspired the project while allowing the player to move safely
+              through the environment.
+            </p>
+
+            <div class="project-gallery">
+              <img
+                src="/img/BlinkScreenshots/raycast+can+see+monster.png"
+                alt="Raycast system preventing enemy movement"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
 </html>
