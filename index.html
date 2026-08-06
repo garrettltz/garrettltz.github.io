@@ -1,87 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Home</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
 
+    <title>Garrett Lantz | Cybersecurity Portfolio</title>
 
-</head>
-<link rel="stylesheet" href="app.css" type="text/css">
+    <link rel="stylesheet" href="app.css" />
+  </head>
 
-<body>
+  <body>
+    <header class="site-header">
+      <nav class="navbar">
+        <a class="logo" href="index.html">Garrett Lantz</a>
 
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="resume.html">Resume</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
 
-<div class="navbar">
-  <div>
-  <h1 style=color:black;padding-top:20px;padding-left:50px;>Garrett Lantz </h1>
-  </div>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Cybersecurity Student</p>
 
-  <a href="./contact.html" class="right">Contact</a>
-  <a href="./about.html"class="right">About</a>
-  <a href="./resume.html"class="right">Resume</a>
-  <a href="./index.html"class="right">Portfolio</a>
-</div>
+          <h1>Building practical skills in cybersecurity and IT.</h1>
 
-<div class="row">
+          <p class="hero-text">
+            I am pursuing a Bachelor of Science in Cybersecurity at Kennesaw
+            State University. My interests include network security, Linux,
+            technical troubleshooting, and hands-on security labs.
+          </p>
 
-  <div class="image-container">
-    <a
-      href="/portfolio/Fruit66/fruit66.html">
-    <img src="/img/Fruit66.png" style="width:600px;height:600px;">
-  </a>
-  </div>
+          <div class="hero-buttons">
+            <a class="button primary-button" href="#projects">
+              View Projects
+            </a>
 
-  <div class="image-container">
-    <a
-      href="/portfolio/Root 66/root66.html">
-    <img src="/img/root66_icon.png" style="width:600px;height:600px;">
-  </a>
-  </div>
+            <a class="button secondary-button" href="resume.html">
+              View Resume
+            </a>
+          </div>
+        </div>
+      </section>
 
-  <div class="image-container">
-    <a
-      href="/portfolio/blink/blink.html">
-    <img src="/img/Blink+Pic.png" style="width:600px;height:600px;">
-    
-  </a>
-  </div>
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Featured Projects</h2>
+          <p>
+            A collection of technical, game development, and collaborative
+            projects.
+          </p>
+        </div>
 
-  <div class="image-container">
-    <a
-    href="/portfolio/wewholinger/wewholinger.html">
-  <img src="/img/WWL_wallpaper-01.png" style="width:600px;height:600px;">
-</a>
-</div>
+        <div class="project-grid">
+          <article class="project-card">
+            <img
+              src="img/Fruit66.png"
+              alt="Fruit 66 game project"
+            />
 
-<div class="image-container">
-  <a
-  href="/portfolio/housingcrisis2/housingcrisis2.html">
-  <img src="/img/hc2.png" style="width:600px;height:600px;">
-</a>
-</div>
+            <div class="project-card-content">
+              <h3>Fruit 66</h3>
+              <p>
+                Award-winning game jam project created under a strict
+                development deadline.
+              </p>
 
-<div class="image-container">
-  <a
-    href="/portfolio/permafrost/permafrost.html">
-  <img src="/img/Permafrost.png" style="width:600px;height:600px;">
-</a>
-</div>
+              <a href="portfolio/Fruit66/fruit66.html">
+                View Project
+              </a>
+            </div>
+          </article>
 
-<div class="image-container">
-  <a
-  href="/portfolio/sight/sight.html">
-  <img src="/img/Sight.png" style="width:600px;height:600px;">
-</a>
-</div>
+          <article class="project-card">
+            <img
+              src="img/root66_icon.png"
+              alt="Root 66 game project"
+            />
 
+            <div class="project-card-content">
+              <h3>Root 66</h3>
+              <p>
+                Collaborative game project focused on design, development, and
+                iteration.
+              </p>
 
+              <a href="portfolio/Root%2066/root66.html">
+                View Project
+              </a>
+            </div>
+          </article>
 
-</div>
+          <article class="project-card">
+            <img
+              src="img/Blink+Pic.png"
+              alt="Blink game project"
+            />
 
-<div class="footer">
-  <h2>Made with HTML by Garrett Lantz</h2>
-</div>
-</body>
+            <div class="project-card-content">
+              <h3>Blink</h3>
+              <p>
+                Interactive project featuring technical implementation and
+                visual development.
+              </p>
 
+              <a href="portfolio/blink/blink.html">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="img/WWL_wallpaper-01.png"
+              alt="We Who Linger game project"
+            />
+
+            <div class="project-card-content">
+              <h3>We Who Linger</h3>
+              <p>
+                Large-scale capstone project developed with a 22-person team.
+              </p>
+
+              <a href="portfolio/wewholinger/wewholinger.html">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="img/hc2.png"
+              alt="Housing Crisis 2 game project"
+            />
+
+            <div class="project-card-content">
+              <h3>Housing Crisis 2</h3>
+              <p>
+                Game project centered on rapid development, teamwork, and
+                testing.
+              </p>
+
+              <a href="portfolio/housingcrisis2/housingcrisis2.html">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="img/Permafrost.png"
+              alt="Permafrost virtual reality project"
+            />
+
+            <div class="project-card-content">
+              <h3>Permafrost</h3>
+              <p>
+                Virtual reality project featuring environmental interaction
+                and iterative testing.
+              </p>
+
+              <a href="portfolio/permafrost/permafrost.html">
+                View Project
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img
+              src="img/Sight.png"
+              alt="Sight game project"
+            />
+
+            <div class="project-card-content">
+              <h3>Sight</h3>
+              <p>
+                Interactive project combining design, testing, and technical
+                problem-solving.
+              </p>
+
+              <a href="portfolio/sight/sight.html">
+                View Project
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
 </html>
