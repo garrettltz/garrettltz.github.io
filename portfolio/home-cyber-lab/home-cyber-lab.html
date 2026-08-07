@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Home Cybersecurity Lab | Garrett Lantz</title>
+
+    <link rel="stylesheet" href="../../app.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="../../index.html">Garrett Lantz</a>
+
+        <div class="nav-links">
+          <a href="../../index.html">Home</a>
+          <a class="active" href="../../index.html#projects">Projects</a>
+          <a href="../../resume.html">Resume</a>
+          <a href="../../about.html">About</a>
+          <a href="../../contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =========================
+           PROJECT HERO
+      ========================== -->
+      <section class="project-hero">
+        <div class="project-page-container">
+          <p class="eyebrow">Cybersecurity Project</p>
+
+          <h1>Home Cybersecurity Lab</h1>
+
+          <p class="project-intro">
+            Built and secured an Ubuntu Linux virtual machine in VMware to
+            practice Linux administration, network security, access control,
+            authentication, and security monitoring.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+           PROJECT OVERVIEW
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Overview</p>
+
+          <h2>Project Goals</h2>
+
+          <p>
+            The goal of this project was to build a small Linux security lab
+            that could be used to practice system administration and defensive
+            security skills in a controlled environment.
+          </p>
+
+          <p>
+            I configured the Ubuntu virtual machine, secured remote access,
+            implemented firewall and authentication controls, tested network
+            exposure from Windows, monitored security events, and created a
+            Bash script to audit the system's security configuration.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+           LAB ENVIRONMENT
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Lab Environment</p>
+
+          <h2>Ubuntu Virtual Machine</h2>
+
+          <p>
+            I created an Ubuntu Linux virtual machine using VMware as the
+            foundation for the lab. The virtual machine provided an isolated
+            environment where I could configure services, change security
+            settings, and test defensive controls without affecting my main
+            Windows system.
+          </p>
+
+          <!-- Screenshot 1: VMware / Ubuntu Lab -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/01-lab-environment.png"
+            alt="Ubuntu Home Cybersecurity Lab running in VMware"
+          />
+
+          <h2>Technologies Used</h2>
+
+          <ul>
+            <li>VMware</li>
+            <li>Ubuntu 26.04 LTS</li>
+            <li>Windows PowerShell</li>
+            <li>OpenSSH</li>
+            <li>UFW Firewall</li>
+            <li>Fail2Ban</li>
+            <li>Nmap</li>
+            <li>Linux users, groups, ACLs, and permissions</li>
+            <li>Bash scripting</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =========================
+           NETWORK SECURITY
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Network Security</p>
+
+          <h2>Firewall and Network Validation</h2>
+
+          <p>
+            I configured UFW with a default-deny policy for incoming traffic
+            while allowing outbound traffic. SSH on TCP port 22 was explicitly
+            permitted so the Ubuntu system could still be administered
+            remotely.
+          </p>
+
+          <p>
+            I tested connectivity between the Windows host and Ubuntu virtual
+            machine to verify that the system remained reachable while the
+            security controls were active.
+          </p>
+
+          <!-- Screenshot 2: SSH / Lab Status -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/02-ssh-and-lab-status.png"
+            alt="SSH and network security configuration in the Ubuntu lab"
+          />
+
+          <p>
+            Network testing from the Windows host allowed me to validate the
+            Ubuntu system from the perspective of another machine rather than
+            relying only on configuration information from the server itself.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+           SSH HARDENING
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Authentication</p>
+
+          <h2>SSH Hardening</h2>
+
+          <p>
+            I installed and configured OpenSSH Server so the Ubuntu virtual
+            machine could be administered remotely from Windows PowerShell.
+          </p>
+
+          <p>
+            I generated an ED25519 SSH key pair on Windows and configured the
+            Ubuntu system to accept the public key. After verifying that
+            key-based authentication worked, I disabled SSH password
+            authentication.
+          </p>
+
+          <!-- Screenshot 3: SSH Authentication -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/04-ssh-authentication-test.png"
+            alt="SSH public key authentication test from Windows PowerShell"
+          />
+
+          <p>
+            I tested the hardened configuration by attempting to force a
+            password-only SSH connection. The server rejected the attempt with
+            a public-key authentication error, confirming that password
+            authentication was disabled.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+           FAIL2BAN
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Threat Mitigation</p>
+
+          <h2>Fail2Ban Protection</h2>
+
+          <p>
+            I installed Fail2Ban to provide additional protection for the SSH
+            service. The SSH jail monitors authentication activity and can
+            temporarily block systems that generate repeated failed login
+            attempts.
+          </p>
+
+          <!-- Screenshot 4: Fail2Ban Status -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/03-fail2ban-status.png"
+            alt="Fail2Ban SSH jail status on Ubuntu"
+          />
+
+          <p>
+            I tested the protection by banning the Windows host IP address.
+            New SSH connections from Windows timed out while the ban was
+            active.
+          </p>
+
+          <!-- Screenshot 5: Fail2Ban / Permission Evidence -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/07-permissions-and-fail2ban.png"
+            alt="Fail2Ban security testing in the Home Cybersecurity Lab"
+          />
+
+          <p>
+            After the configured ban period expired, SSH access was restored.
+            Fail2Ban recorded one total ban, demonstrating that the security
+            control had been triggered successfully.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+           ACCESS CONTROL
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Access Control</p>
+
+          <h2>Linux Users, Groups, and Permissions</h2>
+
+          <p>
+            I created a second Linux account named
+            <code>cyberlab</code> to practice managing permissions between
+            users.
+          </p>
+
+          <p>
+            The account was intentionally limited and could not use sudo. I
+            also tested whether the account could access protected files
+            belonging to another user.
+          </p>
+
+          <!-- Screenshot 6: Permission Denied -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/05-user-access-control.png"
+            alt="Linux access control test showing permission denied"
+          />
+
+          <p>
+            The unauthorized file-access attempt returned
+            <code>Permission denied</code>, demonstrating that the Linux
+            permissions were preventing access as intended.
+          </p>
+
+          <p>
+            I then created a shared <code>securityteam</code> group and added
+            both users to it. Group ownership, ACLs, and the setgid permission
+            were used to create a controlled shared workspace.
+          </p>
+
+          <!-- Screenshot 7: Groups / Security Configuration -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/06-security-configuration.png"
+            alt="Linux security group and permission configuration"
+          />
+        </div>
+      </section>
+
+      <!-- =========================
+           SECURITY MONITORING
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Monitoring</p>
+
+          <h2>Security Logs and Auditing</h2>
+
+          <p>
+            I reviewed Ubuntu journal logs to examine SSH activity and verify
+            successful public-key authentication. I also inspected Fail2Ban
+            logs to verify the ban and automatic unban events generated during
+            testing.
+          </p>
+
+          <p>
+            As a final step, I created a Bash security-audit script to collect
+            important security information from the system in a single report.
+          </p>
+
+          <p>The script reports:</p>
+
+          <ul>
+            <li>Network configuration</li>
+            <li>UFW firewall status</li>
+            <li>SSH security settings</li>
+            <li>Fail2Ban status</li>
+            <li>User and group memberships</li>
+            <li>Listening network ports</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =========================
+           SKILLS DEMONSTRATED
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Skills Demonstrated</p>
+
+          <h2>What I Practiced</h2>
+
+          <ul>
+            <li>Linux system administration</li>
+            <li>Virtual machine configuration</li>
+            <li>Firewall configuration</li>
+            <li>Network reconnaissance and validation</li>
+            <li>SSH key-based authentication</li>
+            <li>Linux system hardening</li>
+            <li>Least privilege and access control</li>
+            <li>Linux users and groups</li>
+            <li>File permissions and ACLs</li>
+            <li>Security monitoring and log analysis</li>
+            <li>Fail2Ban configuration and testing</li>
+            <li>Bash scripting</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =========================
+           BACK TO PROJECTS
+      ========================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <a class="button secondary-button" href="../../index.html#projects">
+            Back to Projects
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
+</html>
