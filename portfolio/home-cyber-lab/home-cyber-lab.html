@@ -10,9 +10,9 @@
   </head>
 
   <body>
-    <!-- =========================
+    <!-- =====================================================
          NAVIGATION
-    ========================== -->
+    ====================================================== -->
     <header class="site-header">
       <nav class="navbar" aria-label="Main navigation">
         <a class="logo" href="../../index.html">Garrett Lantz</a>
@@ -28,9 +28,9 @@
     </header>
 
     <main>
-      <!-- =========================
+      <!-- =====================================================
            PROJECT HERO
-      ========================== -->
+      ====================================================== -->
       <section class="project-hero">
         <div class="project-page-container">
           <p class="eyebrow">Cybersecurity Project</p>
@@ -40,14 +40,14 @@
           <p class="project-intro">
             Built and secured an Ubuntu Linux virtual machine in VMware to
             practice Linux administration, network security, access control,
-            authentication, and security monitoring.
+            authentication, security monitoring, and Bash scripting.
           </p>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            PROJECT OVERVIEW
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Overview</p>
@@ -56,22 +56,23 @@
 
           <p>
             The goal of this project was to build a small Linux security lab
-            that could be used to practice system administration and defensive
+            where I could practice system administration and defensive
             security skills in a controlled environment.
           </p>
 
           <p>
-            I configured the Ubuntu virtual machine, secured remote access,
+            I configured an Ubuntu virtual machine, secured remote access,
             implemented firewall and authentication controls, tested network
-            exposure from Windows, monitored security events, and created a
-            Bash script to audit the system's security configuration.
+            exposure from Windows, configured user access controls, monitored
+            security events, and created a Bash script to audit the system's
+            security configuration.
           </p>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            LAB ENVIRONMENT
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Lab Environment</p>
@@ -86,7 +87,7 @@
             Windows system.
           </p>
 
-          <!-- Screenshot 1: VMware / Ubuntu Lab -->
+          <!-- Screenshot 01: VMware / Ubuntu Lab -->
           <img
             class="project-image"
             src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/01-lab-environment.png"
@@ -103,15 +104,16 @@
             <li>UFW Firewall</li>
             <li>Fail2Ban</li>
             <li>Nmap</li>
-            <li>Linux users, groups, ACLs, and permissions</li>
+            <li>Linux users and groups</li>
+            <li>Linux file permissions and ACLs</li>
             <li>Bash scripting</li>
           </ul>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            NETWORK SECURITY
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Network Security</p>
@@ -128,27 +130,27 @@
           <p>
             I tested connectivity between the Windows host and Ubuntu virtual
             machine to verify that the system remained reachable while the
-            security controls were active.
+            firewall was active.
           </p>
 
-          <!-- Screenshot 2: SSH / Lab Status -->
+          <!-- Screenshot 02: Network / SSH Status -->
           <img
             class="project-image"
             src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/02-ssh-and-lab-status.png"
-            alt="SSH and network security configuration in the Ubuntu lab"
+            alt="Network and SSH configuration in the Ubuntu security lab"
           />
 
           <p>
-            Network testing from the Windows host allowed me to validate the
-            Ubuntu system from the perspective of another machine rather than
-            relying only on configuration information from the server itself.
+            Testing the system from Windows allowed me to validate the
+            configuration from the perspective of another machine rather than
+            relying only on information reported locally by Ubuntu.
           </p>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            SSH HARDENING
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Authentication</p>
@@ -167,7 +169,7 @@
             authentication.
           </p>
 
-          <!-- Screenshot 3: SSH Authentication -->
+          <!-- Screenshot 04: SSH Authentication Test -->
           <img
             class="project-image"
             src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/04-ssh-authentication-test.png"
@@ -176,16 +178,16 @@
 
           <p>
             I tested the hardened configuration by attempting to force a
-            password-only SSH connection. The server rejected the attempt with
-            a public-key authentication error, confirming that password
-            authentication was disabled.
+            password-only SSH connection. The server rejected the connection
+            with a public-key authentication error, confirming that password
+            authentication had been disabled.
           </p>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            FAIL2BAN
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Threat Mitigation</p>
@@ -199,7 +201,7 @@
             attempts.
           </p>
 
-          <!-- Screenshot 4: Fail2Ban Status -->
+          <!-- Screenshot 03: Fail2Ban Status -->
           <img
             class="project-image"
             src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/03-fail2ban-status.png"
@@ -207,29 +209,35 @@
           />
 
           <p>
-            I tested the protection by banning the Windows host IP address.
-            New SSH connections from Windows timed out while the ban was
-            active.
+            The SSH jail was configured with a maximum of five failed attempts
+            within a ten-minute window and a ten-minute ban period.
           </p>
 
-          <!-- Screenshot 5: Fail2Ban / Permission Evidence -->
+          <p>
+            I tested the protection by banning the Windows host IP address.
+            While the ban was active, new SSH connections from Windows timed
+            out. After the ban period expired, SSH access was restored.
+          </p>
+
+          <!-- Screenshot 10: Fail2Ban Ban and Unban Log -->
           <img
             class="project-image"
-            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/07-permissions-and-fail2ban.png"
-            alt="Fail2Ban security testing in the Home Cybersecurity Lab"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/10-fail2ban-ban-unban-log.png"
+            alt="Fail2Ban log showing the Windows host being banned and automatically unbanned"
           />
 
           <p>
-            After the configured ban period expired, SSH access was restored.
-            Fail2Ban recorded one total ban, demonstrating that the security
-            control had been triggered successfully.
+            The Fail2Ban log recorded both the ban and automatic unban of
+            <code>192.168.198.1</code>. This confirmed that the protection was
+            functioning and that the temporary block was removed after the
+            configured ban period.
           </p>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            ACCESS CONTROL
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Access Control</p>
@@ -238,8 +246,8 @@
 
           <p>
             I created a second Linux account named
-            <code>cyberlab</code> to practice managing permissions between
-            users.
+            <code>cyberlab</code> to practice managing permissions and
+            privileges between users.
           </p>
 
           <p>
@@ -248,18 +256,20 @@
             belonging to another user.
           </p>
 
-          <!-- Screenshot 6: Permission Denied -->
+          <!-- Screenshot 05: Permission Denied Test -->
           <img
             class="project-image"
             src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/05-user-access-control.png"
-            alt="Linux access control test showing permission denied"
+            alt="Linux access control test showing a permission denied result"
           />
 
           <p>
             The unauthorized file-access attempt returned
             <code>Permission denied</code>, demonstrating that the Linux
-            permissions were preventing access as intended.
+            permissions prevented access as intended.
           </p>
+
+          <h2>Shared Security Group</h2>
 
           <p>
             I then created a shared <code>securityteam</code> group and added
@@ -267,18 +277,33 @@
             were used to create a controlled shared workspace.
           </p>
 
-          <!-- Screenshot 7: Groups / Security Configuration -->
+          <p>
+            The setgid permission causes new files created inside the shared
+            directory to inherit the directory's group. This allowed a file
+            created by <code>cyberlab</code> to automatically belong to
+            <code>securityteam</code> instead of the user's personal group.
+          </p>
+
+          <!-- Screenshot 11: Shared Directory / Setgid -->
           <img
             class="project-image"
-            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/06-security-configuration.png"
-            alt="Linux security group and permission configuration"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/11-shared-directory-permissions.png"
+            alt="Linux shared directory showing securityteam group ownership and setgid permissions"
           />
+
+          <p>
+            I verified the configuration by creating a file as
+            <code>cyberlab</code> and then modifying it from the
+            <code>glantz</code> account. This confirmed that members of the
+            shared security group could collaborate while access remained
+            controlled through Linux permissions.
+          </p>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            SECURITY MONITORING
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Monitoring</p>
@@ -288,31 +313,59 @@
           <p>
             I reviewed Ubuntu journal logs to examine SSH activity and verify
             successful public-key authentication. I also inspected Fail2Ban
-            logs to verify the ban and automatic unban events generated during
-            testing.
+            logs to verify security events generated during testing.
           </p>
 
           <p>
-            As a final step, I created a Bash security-audit script to collect
-            important security information from the system in a single report.
+            As a final step, I created a Bash security-audit script that
+            collects important security information from the system and
+            displays it in a single report.
           </p>
 
-          <p>The script reports:</p>
+          <p>The script checks:</p>
 
           <ul>
             <li>Network configuration</li>
-            <li>UFW firewall status</li>
+            <li>UFW firewall status and rules</li>
             <li>SSH security settings</li>
-            <li>Fail2Ban status</li>
+            <li>Fail2Ban SSH jail status</li>
             <li>User and group memberships</li>
-            <li>Listening network ports</li>
+            <li>Listening network ports and services</li>
           </ul>
+
+          <!-- Screenshot 08: Security Audit Part 1 -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/08-security-audit-part-1.png"
+            alt="Bash security audit showing network, firewall, and SSH security settings"
+          />
+
+          <p>
+            The first portion of the audit verifies the system's network
+            configuration, confirms that UFW is active, and checks important
+            SSH settings such as public-key authentication and disabled
+            password authentication.
+          </p>
+
+          <!-- Screenshot 09: Security Audit Part 2 -->
+          <img
+            class="project-image"
+            src="../../img/home-cyber-lab-shots/home-cyber-lab-screenshots/09-security-audit-part-2.png"
+            alt="Bash security audit showing Fail2Ban, Linux groups, and listening network ports"
+          />
+
+          <p>
+            The second portion verifies Fail2Ban status, user and group
+            memberships, and the services currently listening for network
+            connections. This gave me a repeatable way to review several
+            security controls from one script.
+          </p>
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
            SKILLS DEMONSTRATED
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <p class="eyebrow">Skills Demonstrated</p>
@@ -322,13 +375,13 @@
           <ul>
             <li>Linux system administration</li>
             <li>Virtual machine configuration</li>
-            <li>Firewall configuration</li>
+            <li>Firewall configuration with UFW</li>
             <li>Network reconnaissance and validation</li>
             <li>SSH key-based authentication</li>
-            <li>Linux system hardening</li>
+            <li>SSH service hardening</li>
             <li>Least privilege and access control</li>
             <li>Linux users and groups</li>
-            <li>File permissions and ACLs</li>
+            <li>File permissions, ACLs, and setgid</li>
             <li>Security monitoring and log analysis</li>
             <li>Fail2Ban configuration and testing</li>
             <li>Bash scripting</li>
@@ -336,9 +389,34 @@
         </div>
       </section>
 
-      <!-- =========================
+      <!-- =====================================================
+           PROJECT TAKEAWAY
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Takeaway</p>
+
+          <h2>What I Learned</h2>
+
+          <p>
+            This project gave me hands-on experience securing and
+            administering a Linux system instead of only studying the
+            concepts individually. I was able to configure security controls,
+            test whether they worked, review the resulting logs, troubleshoot
+            permission issues, and create a script that could be used to
+            review the final configuration.
+          </p>
+
+          <p>
+            Building the lab also gave me an environment that I can continue
+            using for future cybersecurity projects and testing.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
            BACK TO PROJECTS
-      ========================== -->
+      ====================================================== -->
       <section class="section">
         <div class="project-page-container">
           <a class="button secondary-button" href="../../index.html#projects">
@@ -348,9 +426,9 @@
       </section>
     </main>
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ====================================================== -->
     <footer class="footer">
       <p>© 2026 Garrett Lantz</p>
     </footer>
