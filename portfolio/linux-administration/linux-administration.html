@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Linux Administration Lab | Garrett Lantz</title>
+
+    <link rel="stylesheet" href="../../app.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="../../index.html">Garrett Lantz</a>
+
+        <div class="nav-links">
+          <a href="../../index.html">Home</a>
+          <a class="active" href="../../index.html#projects">Projects</a>
+          <a href="../../resume.html">Resume</a>
+          <a href="../../about.html">About</a>
+          <a href="../../contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =====================================================
+           PROJECT HERO
+      ====================================================== -->
+      <section class="project-hero">
+        <div class="project-page-container">
+          <p class="eyebrow">Linux Administration Project</p>
+
+          <h1>Linux Administration Lab</h1>
+
+          <p class="project-intro">
+            Built a simulated company environment in Ubuntu to practice
+            Linux system administration, user and group management,
+            permissions, service management, monitoring, backups,
+            automation, troubleshooting, and Bash scripting.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           PROJECT OVERVIEW
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Overview</p>
+
+          <h2>Project Goals</h2>
+
+          <p>
+            The goal of this project was to practice common Linux
+            administration responsibilities in a small simulated company
+            environment.
+          </p>
+
+          <p>
+            I created separate IT, Development, and Support departments,
+            configured users and groups, restricted access to department
+            directories, administered Linux services, monitored system
+            resources, managed software packages, created and restored
+            backups, and automated administrative tasks with Bash and cron.
+          </p>
+
+          <p>
+            I also practiced troubleshooting with system logs and created a
+            final administration audit script to verify several parts of the
+            environment from one command.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           USERS AND GROUPS
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Identity Management</p>
+
+          <h2>Users and Department Groups</h2>
+
+          <p>
+            I created three test users to represent employees working in
+            different departments:
+          </p>
+
+          <ul>
+            <li><code>alex</code> — IT</li>
+            <li><code>maya</code> — Development</li>
+            <li><code>jordan</code> — Support</li>
+          </ul>
+
+          <p>
+            Each employee was assigned to a Linux group corresponding to
+            their department. This allowed access to resources to be managed
+            through group membership instead of configuring permissions
+            separately for every individual user.
+          </p>
+
+          <!-- Screenshot 01: Users and Groups -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/01-users-and-groups.png"
+            alt="Linux users and department group configuration"
+          />
+        </div>
+      </section>
+
+      <!-- =====================================================
+           DEPARTMENT ACCESS CONTROL
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Access Control</p>
+
+          <h2>Department Directories and Permissions</h2>
+
+          <p>
+            I created separate directories under <code>/company</code> for
+            the IT, Development, and Support departments. Each directory was
+            assigned to its corresponding Linux group.
+          </p>
+
+          <p>
+            The directories were configured with
+            <code>2770</code> permissions. This gives the directory owner
+            and department group full access while preventing users outside
+            the group from accessing the directory.
+          </p>
+
+          <p>
+            The leading <code>2</code> enables the setgid permission. This
+            causes files created inside a department directory to inherit
+            that directory's group ownership.
+          </p>
+
+          <!-- Screenshot 02: Department Access -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/02-department-access-and-account-management.png"
+            alt="Linux department access control and account administration"
+          />
+
+          <p>
+            I tested the configuration using the IT employee account.
+            <code>alex</code> was able to create a file inside the IT
+            directory but received a <code>Permission denied</code> response
+            when attempting to access the Development directory.
+          </p>
+
+          <p>
+            The file created by Alex automatically inherited the
+            <code>it</code> group, confirming that the setgid configuration
+            was working correctly.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           ACCOUNT ADMINISTRATION
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Account Administration</p>
+
+          <h2>Managing User Accounts</h2>
+
+          <p>
+            I practiced temporarily disabling and restoring access to a user
+            account by locking and unlocking Jordan's password.
+          </p>
+
+          <p>
+            I used <code>passwd -S</code> to verify the account status. A
+            locked password was reported with an <code>L</code>, while the
+            restored password showed <code>P</code>.
+          </p>
+
+          <p>
+            This demonstrated how an administrator can disable password
+            access to an account without deleting the account or its files.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SERVICE MANAGEMENT
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Service Management</p>
+
+          <h2>SSH and systemd</h2>
+
+          <p>
+            I used <code>systemctl</code> to inspect and manage the OpenSSH
+            service on the Ubuntu system.
+          </p>
+
+          <p>
+            The SSH service was initially inactive and disabled. I started
+            the service and then enabled it so that it would automatically
+            start when Ubuntu boots.
+          </p>
+
+          <p>
+            I verified that SSH was both
+            <code>active</code> and <code>enabled</code> and also practiced
+            restarting the service. This demonstrated the basic service
+            management workflow used by systemd-based Linux distributions.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SYSTEM MONITORING
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">System Monitoring</p>
+
+          <h2>Monitoring System Resources</h2>
+
+          <p>
+            I used several Linux utilities to inspect the health and resource
+            usage of the Ubuntu system.
+          </p>
+
+          <ul>
+            <li>
+              <code>df -h</code> — checked filesystem and disk utilization
+            </li>
+            <li>
+              <code>free -h</code> — checked physical memory and swap usage
+            </li>
+            <li>
+              <code>top</code> — monitored CPU, memory, and running processes
+            </li>
+            <li>
+              <code>lsblk</code> — inspected disks, partitions, and mount
+              points
+            </li>
+          </ul>
+
+          <p>
+            Using multiple monitoring commands gave me different views of
+            system health and helped me understand how administrators can
+            quickly investigate resource usage from the command line.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           PACKAGE MANAGEMENT
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Software Management</p>
+
+          <h2>APT Package Management</h2>
+
+          <p>
+            I practiced maintaining software using Ubuntu's APT package
+            manager.
+          </p>
+
+          <p>
+            I refreshed the package information with
+            <code>apt update</code> and reviewed the available upgrades
+            before making additional changes.
+          </p>
+
+          <p>
+            I then installed the <code>tree</code> utility and verified the
+            installation by checking its version and using it to inspect the
+            company directory structure.
+          </p>
+
+          <p>
+            Because the department directories were protected by group
+            permissions, the command also demonstrated that my normal account
+            could see the department directories but could not read their
+            protected contents.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           BACKUP AND RECOVERY
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Backup &amp; Recovery</p>
+
+          <h2>Creating and Restoring Backups</h2>
+
+          <p>
+            I used <code>tar</code> with gzip compression to create a backup
+            of the IT department directory.
+          </p>
+
+          <p>
+            After creating the archive, I inspected its contents to verify
+            that the expected files were actually included in the backup.
+          </p>
+
+          <p>
+            I then restored the archive into a separate test directory rather
+            than overwriting the original data. The restored test file
+            retained its ownership information, providing additional
+            verification that the backup and recovery process worked.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           BASH BACKUP AUTOMATION
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Automation</p>
+
+          <h2>Bash Backup Script</h2>
+
+          <p>
+            After completing the backup manually, I created a Bash script
+            called <code>company-backup.sh</code> to automate the process.
+          </p>
+
+          <p>
+            The script creates the backup directory when necessary,
+            generates a timestamp using the current date and time, and
+            creates a compressed archive of the company directories.
+          </p>
+
+          <!-- Screenshot 03: Automated Backup Script -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/03-automated-backup-script.png"
+            alt="Bash script creating a timestamped Linux backup"
+          />
+
+          <p>
+            Timestamped filenames make individual backups easier to identify
+            and prevent each new backup from immediately overwriting the
+            previous archive.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           CRON AUTOMATION
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Task Scheduling</p>
+
+          <h2>Automated Backups with Cron</h2>
+
+          <p>
+            I scheduled the Bash backup script with cron so the backup
+            process could run automatically without requiring a manual
+            command.
+          </p>
+
+          <p>
+            The crontab entry schedules the script to execute every day at
+            2:00 AM:
+          </p>
+
+          <p>
+            <code>0 2 * * * /home/glantz/company-backup.sh</code>
+          </p>
+
+          <!-- Screenshot 04: Cron Schedule -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/04-cron-schedule.png"
+            alt="Linux crontab showing the automated daily backup schedule"
+          />
+
+          <p>
+            I then verified that the cron service itself was enabled and
+            actively running.
+          </p>
+
+          <!-- Screenshot 05: Cron Service -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/05-cron-service-active.png"
+            alt="Ubuntu cron service active and running"
+          />
+
+          <p>
+            This connected the Bash script and Linux task scheduler into a
+            complete automated backup workflow.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           LOG ANALYSIS
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Troubleshooting</p>
+
+          <h2>System and Service Logs</h2>
+
+          <p>
+            I used <code>journalctl</code> to inspect recent system warnings
+            and then narrowed the results to logs generated specifically by
+            the SSH service.
+          </p>
+
+          <!-- Screenshot 06: SSH Service Logs -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/06-ssh-service-logs.png"
+            alt="Ubuntu journal showing SSH service activity"
+          />
+
+          <p>
+            The SSH journal showed successful public-key authentication,
+            service startup activity, listening ports, and the service
+            restart performed during the administration exercise.
+          </p>
+
+          <p>
+            This demonstrated how Linux logs can be filtered by service when
+            investigating activity or troubleshooting a problem.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           PROCESS MANAGEMENT
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Process Management</p>
+
+          <h2>Managing Linux Processes</h2>
+
+          <p>
+            I created a harmless background <code>sleep</code> process to
+            practice managing Linux processes without interfering with an
+            important system service.
+          </p>
+
+          <p>
+            I identified the process by its PID, inspected it using
+            <code>ps</code>, and then terminated it using
+            <code>kill</code>.
+          </p>
+
+          <!-- Screenshot 07: Process Management -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/07-process-management.png"
+            alt="Linux process inspection and termination using ps and kill"
+          />
+
+          <p>
+            This exercise demonstrated the basic process-management workflow
+            of identifying a running process and safely terminating it by its
+            process ID.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           ADMINISTRATION AUDIT
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Bash Scripting</p>
+
+          <h2>Administration Audit Script</h2>
+
+          <p>
+            As the final technical task, I created an
+            <code>admin-audit.sh</code> Bash script that collects several
+            pieces of administrative information into one report.
+          </p>
+
+          <p>The audit checks:</p>
+
+          <ul>
+            <li>Current date, hostname, and user</li>
+            <li>Department groups and memberships</li>
+            <li>Department directory permissions</li>
+            <li>Disk utilization</li>
+            <li>Memory utilization</li>
+            <li>SSH service status</li>
+            <li>Cron service status</li>
+            <li>Available automated backups</li>
+          </ul>
+
+          <!-- Screenshot 08: Administration Audit Part 1 -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/08-admin-audit-part-1.png"
+            alt="Linux administration audit showing users groups permissions disk and memory"
+          />
+
+          <p>
+            The first part of the report verifies the system identity,
+            department groups, directory permissions, disk usage, and memory
+            usage.
+          </p>
+
+          <!-- Screenshot 09: Administration Audit Part 2 -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/09-admin-audit-part-2.png"
+            alt="Linux administration audit showing services and automated backups"
+          />
+
+          <p>
+            The second part verifies that SSH and cron are active and enabled
+            and confirms that the automated backup archive exists.
+          </p>
+
+          <p>
+            The script gave me a repeatable way to check several parts of the
+            environment instead of manually running each administrative
+            command every time.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           FINAL VERIFICATION
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Verification</p>
+
+          <h2>Final Configuration Check</h2>
+
+          <p>
+            At the end of the project, I performed a final verification of
+            the employee group memberships and department directory
+            permissions.
+          </p>
+
+          <!-- Screenshot 10: Final Permissions Verification -->
+          <img
+            class="project-image"
+            src="../../img/linux-administration-shots/linux-administration-screenshots/10-final-permissions-verification.png"
+            alt="Final Linux department group and directory permission verification"
+          />
+
+          <p>
+            The final output confirmed that Development, IT, and Support were
+            assigned to the correct groups and that each directory retained
+            <code>drwxrws---</code> permissions.
+          </p>
+
+          <p>
+            This provided a final check that the access-control configuration
+            remained intact after the other administration and automation
+            work performed during the project.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SKILLS DEMONSTRATED
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Skills Demonstrated</p>
+
+          <h2>What I Practiced</h2>
+
+          <ul>
+            <li>Linux system administration</li>
+            <li>User and group management</li>
+            <li>Linux file and directory permissions</li>
+            <li>Group-based access control</li>
+            <li>Setgid permissions</li>
+            <li>User account locking and unlocking</li>
+            <li>systemd and systemctl service management</li>
+            <li>OpenSSH administration</li>
+            <li>Disk, memory, and process monitoring</li>
+            <li>APT package management</li>
+            <li>Backup creation and recovery</li>
+            <li>Bash scripting</li>
+            <li>Cron task scheduling</li>
+            <li>System and service log analysis</li>
+            <li>Linux process management</li>
+            <li>Administrative verification and auditing</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           PROJECT TAKEAWAY
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Takeaway</p>
+
+          <h2>What I Learned</h2>
+
+          <p>
+            This project gave me hands-on experience with many of the
+            everyday tasks involved in administering a Linux environment.
+            Instead of practicing commands individually, I used them together
+            to build and manage a small company-style environment with users,
+            departments, permissions, services, backups, and automated tasks.
+          </p>
+
+          <p>
+            One of the most useful parts of the project was testing each
+            configuration after making it. I verified access restrictions,
+            checked service states, restored backup data, inspected logs,
+            managed processes, and created an audit script to confirm that
+            the final environment was configured as intended.
+          </p>
+
+          <p>
+            The project also gave me more experience using Bash and Linux
+            command-line tools to turn repetitive administration tasks into
+            repeatable processes.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           BACK TO PROJECTS
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <a class="button secondary-button" href="../../index.html#projects">
+            Back to Projects
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
+</html>
