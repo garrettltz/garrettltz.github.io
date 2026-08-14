@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>File Integrity Monitor | Garrett Lantz</title>
+
+    <link rel="stylesheet" href="../../app.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="../../index.html">Garrett Lantz</a>
+
+        <div class="nav-links">
+          <a href="../../index.html">Home</a>
+          <a class="active" href="../../index.html#projects">Projects</a>
+          <a href="../../resume.html">Resume</a>
+          <a href="../../about.html">About</a>
+          <a href="../../contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- =====================================================
+           PROJECT HERO
+      ====================================================== -->
+      <section class="project-hero">
+        <div class="project-page-container">
+          <p class="eyebrow">Python Security Project</p>
+
+          <h1>File Integrity Monitor</h1>
+
+          <p class="project-intro">
+            Built a Python-based file integrity monitoring tool that uses
+            SHA-256 hashing to create a trusted baseline and detect files
+            that have been added, deleted, or modified.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           PROJECT OVERVIEW
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Overview</p>
+
+          <h2>Project Goals</h2>
+
+          <p>
+            The goal of this project was to understand how cryptographic
+            hashes can be used to detect unexpected or unauthorized changes
+            to files.
+          </p>
+
+          <p>
+            I created a Python program that scans a monitored directory,
+            calculates a SHA-256 hash for each file, stores those hashes in a
+            trusted baseline, and compares future scans against that baseline.
+          </p>
+
+          <p>
+            The monitor can identify files that have been added, deleted, or
+            modified and generates a summary showing the number of changes
+            detected.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           HOW IT WORKS
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">How It Works</p>
+
+          <h2>SHA-256 Hashing and File Scanning</h2>
+
+          <p>
+            The program uses Python's <code>hashlib</code> library to generate
+            a SHA-256 hash for each monitored file.
+          </p>
+
+          <p>
+            Each file is opened in binary mode and read in chunks. The file
+            contents are passed into the SHA-256 hashing function, producing a
+            unique hexadecimal fingerprint for the file's current contents.
+          </p>
+
+          <p>
+            The program recursively scans the
+            <code>monitored-files</code> directory and stores each file's hash
+            using its relative path.
+          </p>
+
+          <!-- Screenshot 03: Python Hashing Code -->
+          <img
+            class="project-image"
+            src="../../img/file-integrity-monitor-shots/file-integrity-monitor-screenshots/03-python-hashing-code.png"
+            alt="Python code showing SHA-256 hashing file scanning and baseline creation"
+          />
+
+          <p>
+            If the contents of a file change, its SHA-256 hash changes as
+            well. This allows the program to detect that the file no longer
+            matches the trusted baseline.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           BASELINE CREATION
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Baseline</p>
+
+          <h2>Creating a Trusted File Baseline</h2>
+
+          <p>
+            When the user selects the baseline option, the program scans the
+            monitored directory and calculates the SHA-256 hash of every file.
+          </p>
+
+          <p>
+            These hashes are stored in <code>baseline.json</code>. The JSON
+            file represents the trusted state of the monitored directory at
+            the time the baseline was created.
+          </p>
+
+          <p>
+            Future integrity checks compare the current directory state
+            against this stored baseline.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           CHANGE DETECTION
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Detection</p>
+
+          <h2>Detecting File Changes</h2>
+
+          <p>
+            I tested the monitor by simulating three different types of file
+            changes.
+          </p>
+
+          <ul>
+            <li>
+              Added a new file named <code>unknown.txt</code>
+            </li>
+            <li>
+              Deleted <code>server-config.txt</code>
+            </li>
+            <li>
+              Modified the contents of <code>employees.txt</code>
+            </li>
+          </ul>
+
+          <p>
+            The program compared the current directory against the saved
+            baseline and correctly identified all three changes.
+          </p>
+
+          <!-- Screenshot 01: Integrity Detection Report -->
+          <img
+            class="project-image"
+            src="../../img/file-integrity-monitor-shots/file-integrity-monitor-screenshots/01-integrity-detection-report.png"
+            alt="File Integrity Monitor detecting added deleted and modified files"
+          />
+
+          <p>
+            The final report clearly labels each type of integrity event:
+          </p>
+
+          <ul>
+            <li><code>[ADDED]</code> — a new file was detected</li>
+            <li><code>[DELETED]</code> — a baseline file was missing</li>
+            <li>
+              <code>[MODIFIED]</code> — a file's SHA-256 hash no longer
+              matched the baseline
+            </li>
+          </ul>
+
+          <p>
+            The report also summarizes the number of files scanned and the
+            total number of detected changes.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           CLEAN VERIFICATION
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Verification</p>
+
+          <h2>Clean Integrity Check</h2>
+
+          <p>
+            After testing the change-detection logic, I restored the monitored
+            files to their expected state and created a new trusted baseline.
+          </p>
+
+          <p>
+            I then performed another integrity check without changing any of
+            the files.
+          </p>
+
+          <!-- Screenshot 02: Clean Integrity Check -->
+          <img
+            class="project-image"
+            src="../../img/file-integrity-monitor-shots/file-integrity-monitor-screenshots/02-clean-integrity-check.png"
+            alt="File Integrity Monitor showing no changes detected"
+          />
+
+          <p>
+            The monitor correctly reported that no changes were detected and
+            returned zero added, deleted, modified, and total changes.
+          </p>
+
+          <p>
+            This demonstrated that the program could identify actual
+            differences while also producing a clean result when the monitored
+            directory still matched the trusted baseline.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           TECHNOLOGIES USED
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Technologies</p>
+
+          <h2>Tools and Technologies Used</h2>
+
+          <ul>
+            <li>Ubuntu Linux</li>
+            <li>Python 3</li>
+            <li>Python <code>hashlib</code></li>
+            <li>SHA-256 hashing</li>
+            <li>JSON</li>
+            <li>Python <code>pathlib</code></li>
+            <li>Linux command line</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SKILLS DEMONSTRATED
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Skills Demonstrated</p>
+
+          <h2>What I Practiced</h2>
+
+          <ul>
+            <li>Python scripting</li>
+            <li>File integrity monitoring</li>
+            <li>Cryptographic hashing</li>
+            <li>SHA-256</li>
+            <li>File and directory operations</li>
+            <li>Recursive directory scanning</li>
+            <li>Baseline creation and comparison</li>
+            <li>JSON data storage</li>
+            <li>Security monitoring concepts</li>
+            <li>Testing and verification</li>
+            <li>Linux command-line administration</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           PROJECT TAKEAWAY
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <p class="eyebrow">Takeaway</p>
+
+          <h2>What I Learned</h2>
+
+          <p>
+            This project helped me understand how file integrity monitoring
+            can detect changes without needing to know exactly what was
+            changed inside a file.
+          </p>
+
+          <p>
+            A trusted hash represents the expected state of a file. When the
+            contents change, the calculated hash changes as well, allowing the
+            program to identify that the current file no longer matches the
+            baseline.
+          </p>
+
+          <p>
+            Building the tool also gave me more experience using Python for
+            cybersecurity tasks, working with files and directories, storing
+            structured data in JSON, and testing security-related scripts
+            against multiple scenarios.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           BACK TO PROJECTS
+      ====================================================== -->
+      <section class="section">
+        <div class="project-page-container">
+          <a class="button secondary-button" href="../../index.html#projects">
+            Back to Projects
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
+</html>
