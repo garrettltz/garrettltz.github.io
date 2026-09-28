@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Clue Cutter | Garrett Lantz</title>
+
+    <link rel="stylesheet" href="../../app.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="../../index.html">Garrett Lantz</a>
+
+        <div class="nav-links">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#projects">Projects</a>
+          <a href="../../resume.html">Resume</a>
+          <a href="../../about.html">About</a>
+          <a href="../../contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">AI-Assisted Multiplayer Game Development</p>
+
+          <h1>Clue Cutter</h1>
+
+          <p class="hero-text">
+            A puppet-theater party game for 2–6 players built around creating
+            clues, cutting them away, and trying to guess the hidden word.
+            Players join from their phones while a shared TV display follows
+            the action.
+          </p>
+
+          <div class="hero-buttons">
+            <a
+              class="button primary-button"
+              href="https://clue-cutter.garrettltz.chatgpt.site"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Play Clue Cutter
+            </a>
+
+            <a class="button secondary-button" href="../../index.html#projects">
+              Back to Projects
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Project Overview</p>
+          <h2>A multiplayer word game built for phones and TV</h2>
+        </div>
+
+        <p>
+          Clue Cutter is a multiplayer party game for 2–6 players. During a
+          round, one player creates five clues for a hidden word. A rival
+          player—or Pip, the game's mascot—rolls to cut some of those clues
+          away before another player attempts to guess the answer.
+        </p>
+
+        <p>
+          Friends can join using a room code or QR code from their phones,
+          while a larger TV or desktop display presents the game to the group.
+          The game supports multiple rounds, scoring, player roles, audience
+          reactions, and players rejoining after disconnecting.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Gameplay</p>
+          <h2>Cutting the Clues</h2>
+        </div>
+
+        <img
+          src="../../img/clue-cutter-shots/01-cutting-the-clues.png"
+          alt="Clue Cutter dice roll determining how many clues are removed"
+        />
+
+        <p>
+          Before the guessing phase, the designated wiper rolls to determine
+          how many clues will be removed. The surviving clues are then revealed
+          to the guesser.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Input System</p>
+          <h2>Handwritten Clues</h2>
+        </div>
+
+        <img
+          src="../../img/clue-cutter-shots/02-handwritten-clues.png"
+          alt="Handwritten clues displayed during a Clue Cutter round"
+        />
+
+        <p>
+          Players can draw clues using a mouse or finger instead of relying
+          entirely on typed text. Supporting touch input made it possible for
+          phones to function as game controllers while the TV acts as the
+          shared stage.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Guessing</p>
+          <h2>Working With Limited Information</h2>
+        </div>
+
+        <img
+          src="../../img/clue-cutter-shots/04-guessing-clues.png"
+          alt="Clue Cutter guessing phase with one clue removed"
+        />
+
+        <p>
+          Once clues have been cut, the guesser has limited attempts to
+          identify the hidden word. Removing clues creates uncertainty while
+          still leaving enough information for players to make connections.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Special Mechanic</p>
+          <h2>Spotlight Wager</h2>
+        </div>
+
+        <img
+          src="../../img/clue-cutter-shots/05-spotlight-wager.png"
+          alt="Clue Cutter Spotlight Wager round"
+        />
+
+        <p>
+          The Spotlight Wager raises the stakes by giving the guesser a single
+          attempt for increased points. The special round uses its own visual
+          treatment to make the moment feel different from a normal turn.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Results</p>
+          <h2>Scoring and Audience Reactions</h2>
+        </div>
+
+        <img
+          src="../../img/clue-cutter-shots/03-round-results.png"
+          alt="Clue Cutter round results showing scores and audience reactions"
+        />
+
+        <p>
+          At the end of a round, the TV display shows the result, updated
+          scores, surviving clues, and audience reactions. Players can also
+          vote on funny incorrect guesses from their phones.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Development</p>
+          <h2>AI-Assisted Workflow</h2>
+        </div>
+
+        <p>
+          Clue Cutter was developed using an AI-assisted workflow. I used
+          ChatGPT to help prototype and implement features while I directed
+          the game's concept, mechanics, interface, testing, and iterative
+          development.
+        </p>
+
+        <p>
+          I repeatedly tested the game across different screen sizes,
+          identified problems, refined requirements, and adjusted features
+          based on how the game behaved on phones and desktop displays.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Challenges</p>
+          <h2>Multiplayer State and Mobile Input</h2>
+        </div>
+
+        <p>
+          Some of the most challenging parts of the project were keeping
+          multiple devices synchronized and making finger drawing feel smooth
+          on mobile devices.
+        </p>
+
+        <p>
+          Supporting reconnection also required preserving shared game state
+          so players could return to an active session without disrupting the
+          rest of the group.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">What I Learned</p>
+          <h2>From Idea to Playable Multiplayer Game</h2>
+        </div>
+
+        <p>
+          Building Clue Cutter gave me experience thinking through shared game
+          state, reconnect behavior, responsive interfaces, touch input, and
+          multiplayer interaction.
+        </p>
+
+        <p>
+          It also taught me how to work with AI as a development tool by
+          translating ideas into specific requirements, testing the results,
+          identifying problems, and iterating until the experience behaved the
+          way I intended.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Next Steps</p>
+          <h2>Playtesting and Refinement</h2>
+        </div>
+
+        <p>
+          My next step is to playtest Clue Cutter with a larger group and use
+          that feedback to refine the pacing, interface, and overall gameplay
+          flow.
+        </p>
+
+        <div class="hero-buttons">
+          <a
+            class="button primary-button"
+            href="https://clue-cutter.garrettltz.chatgpt.site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Play Clue Cutter
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Garrett Lantz</p>
+    </footer>
+  </body>
+</html>
